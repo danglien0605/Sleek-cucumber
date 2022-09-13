@@ -30,12 +30,6 @@ public class CorporateSecretarySteps {
         objCorporateSecretaryPage.verifyCorporateSecretaryDetails(pricePerYear);
     }
 
-    @And("I click on {string} dropdown on corporate secretary page")
-    public void iClickOnDropdownOnCorporateSecretaryPage(String drpName) {
-        objBasePage.clickElement(objCorporateSecretaryLocators.getXpath(drpName));
-
-    }
-
     @And("I select {string} in dropdown {string} on corporate secretary page")
     public void iSelectInDropdownOnCorporateSecretaryPage(String value, String drpName) {
         objCorporateSecretaryPage.selectDropdown(objCorporateSecretaryLocators.getXpath(drpName), value);

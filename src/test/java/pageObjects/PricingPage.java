@@ -8,15 +8,17 @@ import org.openqa.selenium.WebDriver;
 
 public class PricingPage extends BasePage{
 	PricingLocators objPricingLocators;
-	private static Logger logger = LogManager.getLogger(BasePage.class);
+
+	private static final Logger logger = LogManager.getLogger(BasePage.class);
 
 	public PricingPage(WebDriver driver){
 		super(driver);
 		objPricingLocators = new PricingLocators();
+
 	}
 
 	public void clickButtonLearnMore(String section){
-		String btn_learnMore = String.format(objPricingLocators.getXpath("btn learn more"), section);
+		String btn_learnMore = String.format(objPricingLocators.getXpath("btn_learn_more"), section);
 		clickElement(btn_learnMore);
 		logger.info("Clicked on Learn More button at {}",section);
 

@@ -1,21 +1,20 @@
 package pageObjects;
 
-import Locators.HomePageLocators;
-import Manager.DriverManager;
+import Manager.GlobalVariables;
 import org.openqa.selenium.WebDriver;
+import utils.PropertiesReader;
 
 
 public class HomePage extends BasePage {
-	HomePageLocators objHomePageLocator;
+    PropertiesReader objPropertiesReader;
 
-	public HomePage(WebDriver driver){
-		super(driver);
-	}
+    public HomePage(WebDriver driver) {
+        super(driver);
+        objPropertiesReader = new PropertiesReader();
+    }
 
-	public void openHomePage (){
-		this.driver = DriverManager.getDriver();
-		driver.get("https://sleek.com/sg/");
-		objHomePageLocator = new HomePageLocators();
-	}
+    public void openHomePage() {
+        driver.get(GlobalVariables.URL);
+    }
 
 }

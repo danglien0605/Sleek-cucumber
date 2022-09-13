@@ -1,11 +1,9 @@
 package pageObjects;
 
 import Locators.CorporateSecretaryLocators;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CorporateSecretaryPage extends BasePage {
 
@@ -17,8 +15,8 @@ public class CorporateSecretaryPage extends BasePage {
     }
 
     public void verifyCorporateSecretaryDetails(String pricePerYear) {
-        WebElement displayedValue = driver.findElement(By.xpath("//div[@id='text_new_amount']"));
-        assertEquals(displayedValue.getText(), pricePerYear);
+        String displayedValue = getTextElement(objCorporateSecretaryLocators.getXpath("new_amount"));
+        assertEquals(displayedValue, pricePerYear);
 
     }
 

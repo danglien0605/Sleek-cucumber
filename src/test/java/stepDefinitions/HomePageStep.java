@@ -14,13 +14,14 @@ public class HomePageStep{
   BasePage objBasePage;
   HomePageLocators objHomePageLocators;
 
-
+  public HomePageStep() {
+    driver = DriverManager.getDriver();
+    objBasePage = new BasePage(driver);
+    objHomePage = new HomePage(driver);
+    objHomePageLocators = new HomePageLocators();
+  }
   @Given("I go to the Sleek SG Home page")
   public void iGoToTheSleekSGHomePage() {
-    driver = DriverManager.getDriver();
-    objHomePage = new HomePage(driver);
-    objBasePage = new BasePage(driver);
-    objHomePageLocators = new HomePageLocators();
     objHomePage.openHomePage();
   }
 
