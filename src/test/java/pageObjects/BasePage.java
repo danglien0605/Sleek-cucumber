@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PropertiesReader;
 
 import java.time.Duration;
+import java.util.List;
 
 
 public class BasePage {
@@ -76,9 +78,15 @@ public class BasePage {
     }
 
     public void selectDropdown(String drpLocator, String option) {
-        Select se = new Select(driver.findElement(By.xpath(drpLocator)));
-        se.selectByVisibleText(option);
-        logger.info("Selected option: {}", option);
+
+        driver.findElement(By.xpath(drpLocator)).click();
+        List<WebElement> allOptions = driver.findElements(By.xpath(drpLocator + "//option"));
+        for (int i = 0; i <= allOptions.size() - 1; i++) {
+            if (allOptions.get(i).getText().contains(option)) {
+                allOptions.get(i).click();
+                break;
+            }
+        }
     }
 
 }

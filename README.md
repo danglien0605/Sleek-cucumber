@@ -15,7 +15,7 @@ Make sure you have installed all of the following prerequisites on your developm
 - From Command line (Windows) or Terminal (MacOS) type this command: 
 
 ```
-mvn test -D"cucumber.filter.tags=@<tagname>"
+mvn clean test
 ```
 #### Reporting
 
