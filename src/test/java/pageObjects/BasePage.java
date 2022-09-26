@@ -1,6 +1,7 @@
 package pageObjects;
 
 import Manager.GlobalVariables;
+import Manager.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,7 @@ import utils.PropertiesReader;
 
 import java.time.Duration;
 import java.util.List;
+
 
 
 public class BasePage {
@@ -60,14 +62,15 @@ public class BasePage {
 
     public void openPage(String pageName) {
         driver.get(objPropertiesReader.getApplicationUrl(pageName));
-        logger.info("Navigated to {}", pageName);
+        Log.INFO("navigate {}", pageName);
     }
 
     public void clickElement(String elementLocator) {
         WebElement element = driver.findElement(By.xpath(elementLocator));
         waitForElementClickable(elementLocator);
         element.click();
-        logger.info("Clicked on {}", elementLocator);
+        //logger.info("Clicked on {}", elementLocator);
+        Log.INFO("clicked on {}", elementLocator);
     }
 
     public String getTextElement(String elementLocator) {
@@ -78,7 +81,6 @@ public class BasePage {
     }
 
     public void selectDropdown(String drpLocator, String option) {
-
         driver.findElement(By.xpath(drpLocator)).click();
         List<WebElement> allOptions = driver.findElements(By.xpath(drpLocator + "//option"));
         for (int i = 0; i <= allOptions.size() - 1; i++) {

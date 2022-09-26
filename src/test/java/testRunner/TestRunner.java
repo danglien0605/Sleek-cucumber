@@ -10,7 +10,10 @@ import org.junit.runner.RunWith;
         features = ".//Features/pricing.feature",
         glue = "stepDefinitions",
         monochrome = true,
-        plugin = {"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
+        plugin = {"pretty",
+                "html:target/report/cucumber.html",
+                "json:target/report/cucumber.json"
+        }
 )
 public class TestRunner {
 
