@@ -16,6 +16,8 @@ public class HomePageStep{
   HomePageLocators objHomePageLocators;
   Log logger;
 
+  private final String CONTEXT = "home page";
+
   public HomePageStep() {
     driver = DriverManager.getDriver();
     objBasePage = new BasePage(driver);
@@ -32,6 +34,12 @@ public class HomePageStep{
   public void iClickOnTheLink(String link) {
     objBasePage.clickElement(objHomePageLocators.getXpath(link));
 
+
+  }
+
+  @When("I enter data from excel file into {string} field on " + CONTEXT)
+  public void iEnterDataFromExcelFileIntoFieldOnHomePage(String fieldName) {
+    objHomePage.enterTextFromExcelFile(objHomePageLocators.getXpath(fieldName), "company name");
 
   }
 }

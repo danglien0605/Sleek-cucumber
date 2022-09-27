@@ -33,7 +33,7 @@ public class Hooks {
                 final byte[] screenshot  = ((TakesScreenshot ) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot  , "image/png", "Bartholomew and the Bytes of the Oobleck");
         }
-        DriverManager.quitDriver();
+      //  DriverManager.quitDriver();
     }
 
 }

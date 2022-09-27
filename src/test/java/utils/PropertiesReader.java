@@ -50,4 +50,10 @@ public class PropertiesReader {
         else throw new RuntimeException(urlName + " not specified in the appconfig.properties file.");
     }
 
+    public String getValue(String key){
+        String value = properties.getProperty(key);
+        if(value != null) return value;
+        else throw new RuntimeException(key + " not specified in the appconfig.properties file.");
+    }
+
 }

@@ -91,4 +91,14 @@ public class BasePage {
         }
     }
 
+    public void waitForElementVisibility(String locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalVariables.LONG_TIME));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+    }
+    public void enterText(String locator, String text) {
+        waitForElementVisibility(locator);
+        driver.findElement(By.xpath(locator)).sendKeys(text);
+        Log.INFO("Entered {}", text);
+    }
+
 }
